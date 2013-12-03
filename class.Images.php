@@ -395,7 +395,10 @@ class Image {
     {
         //add extension
         if($extension == ""){
-            $filename .= $this->getExtension(true);
+			$extlen = strlen(strrchr($filename,'.'));
+			if($extlen >= 3 && $extlen <= 4){
+            	$filename .= $this->getExtension(true);
+			}
         }else{
             $filename .= ".".$extension;
         }
